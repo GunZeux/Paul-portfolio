@@ -1,5 +1,8 @@
 import streamlit as st
+import pandas as pd
 
+df = pd.read_csv("Paul_Data.csv")
+st.set_page_config(layout="wide")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -21,5 +24,14 @@ with col2:
 
 st.write("The below are some of my projects and skills")
 
-col3, empty_space, col4 = st.columns([1.5,0.5,1.5])
+col3, empty_space, col4 = st.columns([1.5, 0.5, 1.5])
+length = len(df)
+with col3:
+    for index, row in df[:7].iterrows():
+        st.header(row["skill"])
+        st.write(row["description"])
 
+with col4:
+    for index, row in df[7:].iterrows():
+        st.header(row["skill"])
+        st.write(row["description"])
