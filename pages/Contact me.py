@@ -14,12 +14,12 @@ with st.form("Send Message"):
     button = st.form_submit_button("Submit")
 
     if button:
-        message = f"""
+        message = f"""\
 Subject: New Enquiry for {user_option} from Portfolio
 
 From: {user_mail}
 {raw_msg}"""
         send_email(message)
-
+        st.info("e-mail sent successfully".title())
         print("completed")
 

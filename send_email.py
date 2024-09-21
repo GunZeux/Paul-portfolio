@@ -1,11 +1,11 @@
-import streamlit as st
 import os
 import smtplib
 import ssl
+import streamlit as st
 
 
 def send_email(message):
-    host = "smtp.@gmail.com"
+    host = "smtp.gmail.com"
     port = 465
 
     try:
@@ -20,5 +20,4 @@ def send_email(message):
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(user_mail, password)
         server.sendmail(user_mail, receiver_mail, message)
-
     print("completed")
